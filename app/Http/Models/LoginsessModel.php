@@ -9,6 +9,7 @@ class LoginsessModel extends Model{
 	
 //用户状态
 	static public function login_sess(){
+
 		$user = session()->has('id');
 		if($user==null){
 			$state['state'] = "0";

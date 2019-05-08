@@ -13,6 +13,7 @@ class CommentController extends Controller{
 			$toke = $request->all();
 
 			$article['use'] = LoginsessModel::login_sess();
+
 			if($article['use']['state']==='0'){
 				$status['status']='0';
 				$status['mes']='用户尚未登录';

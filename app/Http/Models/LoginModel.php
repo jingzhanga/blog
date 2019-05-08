@@ -72,7 +72,8 @@ class LoginModel extends Model{
 		
 
 	}	
-	if($state['state']===1){
+
+	if($state['state']==='1'){
 		session($has);
 	}	
 
