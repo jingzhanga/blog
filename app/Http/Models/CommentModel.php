@@ -17,7 +17,7 @@ class CommentModel extends Model{
     static public function comment($use,$toke){
 
     	$date=date('Y-m-d');
-
+//
 
     	if(!is_array($toke)||!isset($toke['id'])||!isset($toke['meg'])){
     		$comment=['status'=>'0','meg'=>'评论失败'];
@@ -28,7 +28,7 @@ class CommentModel extends Model{
     	if(empty($has)){
     		$comment=['status'=>'0','meg'=>'文章不存在'];
     	}else{
-
+    		
     		$id = DB::table('comment')->insert(['uid'=>$use['state'],'comment'=>$toke['meg'],'cid'=>$toke['id'],'date'=>$date]);
     		$comment=(empty($id))?['status'=>'0','meg'=>'评论失败']:['status'=>'1','meg'=>'评论成功'];
     	}

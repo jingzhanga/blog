@@ -4,7 +4,7 @@ namespace App\Http\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\DB;
 
 class ListArticleModel extends Model{
 	protected $table        = 'article';   
@@ -23,7 +23,7 @@ class ListArticleModel extends Model{
 		}else{
 			$message = ListArticleModel::where('id','>=','1')->orderby('date')->get()->toArray();
 		
-			$b=Cache::add('key3',$message,1);
+			Cache::add('key3',$message,1);
 		}
 
 		$message=MysqlErrorModel::index($message,$error_name);

@@ -15,16 +15,16 @@ class LoginController extends Controller{
 			$mesage = $request->all();
 
 
-			
-			$article = LoginModel::login($mesage);
+			$b=new LoginModel();
+			$article =$b->login($mesage);
 			
 
 
 			return response()->json($article);
 
 	}catch(\Exception $e){
-            \Log::info('errCode:'.$e->getCode().'errMsg'.$e->getMessage()."\n\n\t");
-            return response()->json(["mesg"=>"0","uuid"=>null]);
+            \Log::error('LoginController/index:errCode:'.$e->getCode().'errMsg'.$e->getMessage()."\n\n\t");
+            return response()->json(['status'=>"0",'mesg'=>404,'data'=>null]);
         }
         }
 	}
